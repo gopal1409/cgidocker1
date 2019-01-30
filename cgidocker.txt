@@ -1,0 +1,69 @@
+    1  systemctl disable packagekit
+    2  yum remove PackageKit
+    3  systemctl stop packagekit
+    4  systemctl disable packagekit
+    5  yum remove PackageKit
+    6  yum update 
+    7  init 0
+    8  clear
+    9  shutdown -h now
+   10  yum remove docker                   docker-client                   docker-client-latest                   docker-common                   docker-latest                   docker-latest-logrotate                   docker-logrotate                   docker-engine
+   11  yum install -y yum-utils   device-mapper-persistent-data   lvm2
+   12  yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
+   13  yum install docker-ce
+   14  ip a
+   15  clear
+   16  docker --version
+   17  service docker start
+   18  chkconfig docker on
+   19  service docker status
+   20  docker container run --publish 80:80 --detach --name webhost nginx
+   21  ip a
+   22  docker container ls
+   23  ip a
+   24  docker container logs webhost
+   25  docker container top webhost
+   26  docker container run --publish 80:81 --detach --name webhost nginx
+   27  docker container run --publish 80:81 --detach --name webhost1 nginx
+   28  docker container ls
+   29  docker container ls -a
+   30  docker container rm d59 7c7
+   31  docker container rm -f d59 7c7
+   32  docker container run --publish 80:81 --detach --name webhost1 nginx
+   33  docker ps
+   34  docker container stop 9edccd60af19
+   35  docker ps
+   36  docker ps -a
+   37  docker container start 9edccd60af19
+   38  docker container ls
+   39  docker run --name mongo -d mongo
+   40  docker ps
+   41  docker top mongo
+   42  ps aux
+   43  docker run --name mongo1 mongo
+   44  docker ps
+   45  docker stop mongo
+   46  docker top mongo
+   47  ps aux
+   48  ps aux | grep mongo
+   49  docker start mongo
+   50  ps aux | grep mongo
+   51  docker container run -d -p 3306:3306 mysql
+   52  docker ps
+   53  docker container run -d -p 3306:3306 --name db -e MYSQL_RANDOM_ROOT_PASSWORD=yes mysql
+   54  docker ps
+   55  docker container log db
+   56  docker container logs db
+   57  docker container run -d --name webserver -p 8080:80 httpd
+   58  docker container run -d --name proxy -p 8081:80 nginx
+   59  docker ps
+   60  docker container ls
+   61  curl localhost
+   62  curl localhost:8081
+   63  curl localhost:8080
+   64  docker ps
+   65  docker top db
+   66  docker inspect mysql
+   67  docker container stats
+   68  history
+   69  history > cgidocker.txt
